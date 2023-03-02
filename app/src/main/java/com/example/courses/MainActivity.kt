@@ -110,7 +110,6 @@ fun TopicCard(topic: Topic, modifier: Modifier = Modifier) {
                         contentDescription = null,
                         modifier = Modifier
                             .padding(start = 16.dp)
-                            .size(12.dp)
                     )
                     Text(
                         text = topic.availableCourses.toString(),
