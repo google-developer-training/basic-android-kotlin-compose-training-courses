@@ -18,6 +18,7 @@ package com.example.courses
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -27,6 +28,7 @@ import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
@@ -50,16 +52,23 @@ import com.example.courses.ui.theme.CoursesTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
+        enableEdgeToEdge()
         super.onCreate(savedInstanceState)
         setContent {
             CoursesTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(
-                    modifier = Modifier.fillMaxSize(),
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .statusBarsPadding(),
                     color = MaterialTheme.colorScheme.background
                 ) {
                     TopicGrid(
-                        modifier = Modifier.padding(dimensionResource(R.dimen.padding_small))
+                        modifier = Modifier.padding(
+                            start = dimensionResource(R.dimen.padding_small),
+                            top = dimensionResource(R.dimen.padding_small),
+                            end = dimensionResource(R.dimen.padding_small),
+                        )
                     )
                 }
             }
